@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/topten.css">
+</head>
+<body>
+   <%- include("header") %>
+
+   <section class="top-ten-section">
+
+    <div class="top-ten-content">
+        <h1>Top 10 Shows </h1>
+        <hr>
+        <div class="top-ten-grid">
+        <% if(locals.newtopnew){ %>
+            <% newtopnew.forEach(e => {%>
+                
+            <div class="top-ten-grid-box">
+            <a href="/view?id=<%=e.id %>&source=kitsu">
+            <img class="top-ten-grid-img" src="<%=e.attributes.posterImage.small %>" alt="top.new.img" onerror="this.onerror=null;this.src='/images/anime-2.jpg'">
+            <span class="ten-show-name"><%=e.attributes.titles.en || "Crimson Pulse: Eclipse Order" %></span>
+            </a>
+            </div>
+
+            <%  }); %>
+
+         <% } else { %>
+             <div class="top-ten-grid-box"><img class="top-ten-grid-img" src="" alt="error:refresh page" onerror="this.onerror=null;this.src='/images/anime-2.jpg'">
+            <span class="ten-show-name">Untitled anime refresh page!</span>
+            </div>
+
+
+            <% } %>
+
+        </div>
+
+    </div>
+
+   </section>
+    
+</body>
+</html>

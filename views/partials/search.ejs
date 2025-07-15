@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/search.css">
+</head>
+<body>
+    <%- include('header') %>
+   <% if (results && results.length > 0) { %>
+
+    <section class="displaySearch">
+         
+        <div class="search-top-content">
+
+         <!-- Video Background -->
+            <video autoplay muted loop class="bg-video">
+                <source src="/vedios/bg-1-search-vedio.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
+
+
+
+         <div class="overlay-content">
+            <div class="search-image-div">
+                <a href="/View?id=<%= results[0]?.mal_id %>&source=jikan">
+                <img  class="search-image" src="<%=results[0]?.images?.jpg?.large_image_url %>" alt="anime.img" onerror="this.onerror=null; this.src='https://cdn.myanimelist.net/images/anime/1141/142503l.jpg'">
+                </a>
+            </div>
+            <div class="search-image-about">
+            <p class="img-name-gr"><%=results[0]?.title_english || results[0]?.title||"Naruto"%></p>
+            </div>
+          </div>  
+
+        </div>
+       
+
+        <div class="search-description">
+            <h2 class="description-header">Description</h2>
+            <p class="description-data"><%=results[0]?.synopsis ||"No synopsis available"%></p>
+
+        </div>
+        <div class="more-info">
+            <h2 class="more-info-header">More Information</h2>
+         <div class="blocks">
+            <div class="avg-score block">
+              <p>Average Score</p>
+             <span><%=results[0]?.score||"N/A" %></span>
+
+            </div>
+            <div class="rele-date block">
+              <p>Realease Date</p>
+             <span><%=results[0]?.aired?.string||"N/A"  %></span> 
+
+            </div>
+            <div class="total-epi block">
+              <p>Total Episodes</p>
+             <span><%=results[0]?.episodes||"N/A"%></span>
+            </div>
+            <div class="epi-duration block">
+              <p>Duration</p>
+             <span><%=results[0]?.duration||"N/A"%></span>
+            </div>
+         </div>
+
+        </div>
+
+        <button class="back-search-btn">Back</button>
+
+        
+
+    </section>
+    <% }else { %>
+        <section class="displaySearch ">
+
+              <div class="search-top-content">
+
+             <!-- Video Background -->
+            <video autoplay muted loop class="bg-video ">
+                <source src="/vedios/bg-2-search-vedio.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
+             <div class="overlay-content">
+                <p class="ep">Searched anime not found ! please check your spelling and try again 😅</p>
+            </div>
+             
+          
+   
+            </div>
+
+             <button class="back-search-btn">Back</button>
+
+        </section>
+        <% } %>
+
+   
+
+
+
+   
+    
+</body>
+</html>

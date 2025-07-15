@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/explore.css">
+</head>
+<body>
+    <%- include("header") %>
+
+    <section class="explore-section">
+
+        <div class="explore-head">
+            <div class="show-top">
+                <p class="most-watched-name">Most Watched<br>Show</p>
+                <span class="most-watched-data"><%=mostContent?.title_english || " Heartstorm Echo" %> -"<%=mostContent?.background || " A tale of fleeting memories and eternal bonds, set in a futuristic world gripped by chaos and love.." %>"
+                </span>
+                <div class="blurr-green"></div>
+            </div>
+            <a href="/View?id=<%=mostContent?.mal_id %>&source=jikan" class="most-watched-anchor">
+            <img  class="most-watched-img"   src="<%=mostContent?.images?.jpg?.image_url %>" alt="most.watched.show.img" onerror="this.onerror=null;this.src='/images/anime-1.jpg';">
+            </a>
+        </div>
+        <div class="explore-content">
+            <div class="our-pick">
+                <h2>Our Picks</h2>
+                <div class="our-picks-images">
+                    <div class="green-box"></div>
+                    <div class="grey-box"></div>
+                    <div class="im img-1">
+                         <a href="/View?id=<%=ratedContent?.[0]?.id %>&source=kitsu">
+                        <img src="<%=ratedContent?.[0]?.attributes?.posterImage?.small %>" alt=""  onerror="this.onerror=null;this.src='/images/anime-1.jpg'" >
+                        <span class="our-pick-showname"><%=ratedContent?.[0]?.attributes?.titles?.en ||"Heartstorm Echo"  %>  </span>
+                        </a>
+                    </div>
+                    <div class="im img-2">
+                         <a href="/View?id=<%=ratedContent?.[1]?.id %>&source=kitsu">
+                        <img src="<%=ratedContent?.[1]?.attributes?.posterImage?.small %>" alt=""  onerror="this.onerror=null;this.src='/images/anime-2.jpg'">
+                        <span class="our-pick-showname"><%=ratedContent?.[1]?.attributes?.titles?.en ||"Crimson Pulse: Eclipse Order"  %> </span>
+                        </a>
+                    </div>
+                    <div class="im img-3">
+                         <a href="/View?id=<%=ratedContent?.[2]?.id %>&source=kitsu">
+                        <img src="<%=ratedContent?.[2]?.attributes?.posterImage?.small %>" alt=""  onerror="this.onerror=null;this.src='/images/anime-3.jpg'">
+                        <span class="our-pick-showname"><%=ratedContent?.[2]?.attributes?.titles?.en ||"Shadow Circuit"%></span>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="explore-bottom">
+
+
+            <div class="eb-c">
+                <p class="new-in-store-title">New in<br>Store</p>
+               <div class="new-grid-container">
+                    <div class="box box1">
+                        <a href="/View?id=<%=newContent?.[0]?.id %>&source=kitsu">
+                        <img  class="grid-img-1 gr-img" src="<%=newContent?.[0]?.attributes?.posterImage?.original%>" alt=""  onerror="this.onerror=null;this.src='/images/anime-1.jpg'">
+                        <span class="top-pick-showname"><%=newContent?.[0]?.attributes?.titles?.en ||"Heartstorm Echo"  %></span>
+                        </a>
+                    </div>
+
+                    <div class="box box2">
+                         <a href="/View?id=<%=newContent?.[1]?.id %>&source=kitsu">
+                        <img  class="grid-img-2 gr-img"src="<%=newContent?.[1]?.attributes?.posterImage?.original %>" alt=""  onerror="this.onerror=null;this.src='/images/anime-2.jpg'">
+                        <span class="top-pick-showname"><%=newContent?.[1]?.attributes?.titles?.en ||"Crimson Pulse: Eclipse Order"  %></span>
+                        </a>
+                    </div>
+
+                    <div class="box box3">
+                         <a href="/View?id=<%=newContent?.[2]?.id %>&source=kitsu">
+                        <img  class="grid-img-3 gr-img"src="<%=newContent?.[2]?.attributes?.posterImage?.large %>" alt=""  onerror="this.onerror=null;this.src='/images/anime-3.jpg'">
+                        <span class="top-pick-showname"><%=newContent?.[2]?.attributes?.titles?.en||newContent?.[2]?.attributes?.canonicalTitle ||"Shadow Circuit"  %></span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    
+</body>
+</html>

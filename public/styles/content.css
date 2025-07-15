@@ -1,0 +1,75 @@
+.content-section{
+    height: auto;
+    width: var(--container-width);
+    background:var(--content-background);
+     margin:var(--margin-inline);
+     margin-top: 0%;
+     box-sizing: border-box;
+     overflow: hidden;
+    
+}
+
+.image-section{
+max-height: 600px;
+   border: transparent;
+    box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 10px 20px;
+    border-radius: 8px;
+    position: relative;
+     overflow: hidden;
+    
+}
+
+.image-section .anime-images{
+    height: 100%;
+    width: 100%;
+   
+    display: block;
+    object-fit:cover;
+    object-position: top  center;
+    
+}
+  .image-section .navbtn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background-color:transparent;
+    border: transparent;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+ }
+ .image-section svg{
+    height: 24px;
+    width: 24px;
+     fill: white;
+ }
+
+ .image-section .leftbtn {
+    left: 10px;
+ 
+}
+
+.image-section .rightbtn {
+    right: 10px;
+ 
+}
+
+.image-section .content-showname{
+    position: absolute;
+    left: 1px;
+    bottom: 1px;
+    z-index: 2;
+    padding: 1px;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    color: white;
+    text-shadow: 2px 2px 2px rgba(212, 219, 221, 0.4);
+    font-weight: bolder;
+}

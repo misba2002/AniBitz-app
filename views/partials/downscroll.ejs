@@ -1,0 +1,51 @@
+
+<section class="down-section">
+<div class="down-header">
+    <span>Top 10 Shows</span>
+    <button onclick="location.href='/topTen'">See All </button>
+</div>
+
+<div class="down-content">
+
+
+    <% 
+    // Manually rendered card boxes instead of a loop.
+    // This approach gave more control over spacing, fallback images, and visual alignment.
+    // A dynamic loop-based setup is also possible and may be used in future implementations.
+    %>
+
+
+
+
+    <div class="card-box">
+    <a href="/View?id=<%=topContent?.[0]?.mal_id%>&source=jikan">   
+    <img class="card-image" src="<%=topContent?.[0]?.images?.jpg?.image_url%>" alt="anime.png" onerror="this.onerror=null;this.src='/images/anime-1.jpg';">
+    <span class="card-showname"><%=topContent?.[0]?.title_english ||"Heartstorm Echo" %></span>
+    </a> 
+    </div>
+
+    <div class="card-box">
+     <a href="/View?id=<%=topContent?.[1]?.mal_id%>&source=jikan">  
+     <img class="card-image" src="<%=topContent?.[1]?.images?.jpg?.image_url%>" alt="anime.png" onerror="this.onerror=null;this.src='/images/anime-2.jpg';">
+     <span class="card-showname"><%=topContent?.[1]?.title_english ||"Crimson Pulse: Eclipse Order" %></span>
+     </a> 
+    </div>
+    <div class="card-box">
+     <a href="/View?id=<%=topContent?.[2]?.mal_id%>&source=jikan">
+       <img class="card-image" src="<%=topContent?.[2]?.images?.jpg?.image_url%>" alt="anime.png" onerror="this.onerror=null;this.src='/images/anime-3.jpg';">
+       <span class="card-showname"><%=topContent?.[2]?.title_english ||"Shadow Circuit" %></span>
+     </a>
+    </div>
+    <div class="card-box">
+    <a href="/View?id=<%=topContent?.[3]?.mal_id%>&source=jikan">
+      <img class="card-image" src="<%=topContent?.[3]?.images?.jpg?.image_url%>" alt="anime.png" onerror="this.onerror=null;this.src='/images/anime-4.jpg';">
+      <span class="card-showname"><%=topContent?.[3]?.title_english ||"Moonlit Requiem" %></span>
+    </a>
+    
+    </div>
+    
+
+</div>
+
+
+</section>

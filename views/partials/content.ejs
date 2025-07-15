@@ -1,0 +1,29 @@
+
+
+<main class="content-section">
+   
+        
+    <div class="image-section">
+    <button class="navbtn leftbtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-square-fill" viewBox="0 0 16 16">
+        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm10.5 10V4a.5.5 0 0 0-.832-.374l-4.5 4a.5.5 0 0 0 0 .748l4.5 4A.5.5 0 0 0 10.5 12"/>
+        </svg>
+    </button>
+
+    <a id="anime-link-hai" href="#">
+    <img src="<%=content[0]?.images?.jpg?.large_image_url %>" class="anime-images" alt="anime.img" onerror="this.onerror=null;this.src='/images/anime-style-people-with-fire.jpg'" > 
+    <span class="content-showname"> <%=content[0].title_english||"Flare of Youth"%> </span> 
+    </a>
+
+     <button class="navbtn rightbtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-square-fill" viewBox="0 0 16 16">
+        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm5.5 10a.5.5 0 0 0 .832.374l4.5-4a.5.5 0 0 0 0-.748l-4.5-4A.5.5 0 0 0 5.5 4z"/>
+        </svg>
+     </button>
+    </div>
+    <div id="anime-data" data-anime="<%= encodeURIComponent(JSON.stringify(content)) %>"></div>
+
+
+
+  
+</main>

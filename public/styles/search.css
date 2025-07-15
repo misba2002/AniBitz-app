@@ -1,0 +1,265 @@
+.displaySearch{
+    margin: var( --margin-inline);
+    width: var(--container-width);
+    background: var(--content-background);
+    min-height: 600px;
+    height: auto;
+    overflow: hidden;
+    padding-bottom: 2rem;
+    
+
+}
+
+.search-top-content{
+    position: relative;
+    
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+
+}
+
+.search-top-content .bg-video{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.search-top-content .overlay-content{
+    position: relative;
+    left: 0%;
+    top: 0%;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+
+.search-image-div {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.search-image {
+  max-height: 95%;
+  max-width: 95%;
+  object-fit: contain;
+  box-shadow: 2px 2px 10px skyblue, -2px -2px 10px darkcyan;
+  border-radius: 3%;
+}
+
+.search-image-about {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.search-image-about .img-name-gr{
+    font-size: clamp(2rem, 6vw, 5rem);
+    color: white;
+    text-shadow: 2px 2px 2px rgba(255, 0, 21, 0.4);
+    font-weight: bolder;
+}
+
+.displaySearch .search-description{
+    display: flex;
+    flex-direction: column;
+   
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.search-description .description-header{
+width: 100%;
+height: auto;
+font-size: clamp(1.6rem, 3vw, 3rem);
+color: white;
+text-shadow: 2px 2px 2px blue;
+font-weight: bolder;
+margin: 0%;
+margin-left: 2%;
+
+
+
+}
+.search-description .description-data{
+ width: 95%; /* or 100% with padding if needed */
+  height: auto;
+  font-size: clamp(1rem, 2vw, 2rem);
+  color: white;
+  margin-left: 2%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+
+
+}
+
+
+.displaySearch .more-info .more-info-header{
+width: 100%;
+height: max-content;
+font-size: clamp(1rem, 2vw, 3rem);
+color: white;
+text-shadow: 2px 2px 2px blue;
+font-weight: bolder;
+margin: 0%;
+margin-left: 2%;
+      
+}
+.more-info .blocks{
+    display: inline-flex;
+    justify-content:space-between;
+    gap:10px;
+    overflow: hidden;
+    flex-wrap: wrap;
+    margin: 2%;
+    color: white;
+}
+
+.more-info .block{
+   
+    height: 90px;
+    width: 240px;
+    background-color: grey;
+    border: black;
+    border-radius:0.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+
+}
+.block p{
+    font-size: clamp(1rem, 1.5vw, 2rem);
+    font-weight: bolder;
+    margin: 0%;
+
+}
+
+.block span{
+    font-size: clamp(1rem, 1.5vw, 2rem);
+    font-weight: bolder;
+    padding-top: 2px;
+    margin: 0%;
+
+}
+
+.back-search-btn{
+    background-color: #3498db;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+    margin-left: 2%;
+}
+
+.back-search-btn:hover {
+  background-color: #2980b9;
+}
+
+.header-section .H-logo{
+    margin-top: 0%;
+}
+
+.overlay-content,
+.search-image-div,
+.search-image-about,
+.search-image,
+.more-info .block {
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+@media (max-width: 690px) {
+  
+ .overlay-content{
+    flex-direction: column;
+    flex: 1 1 100%;
+    max-width: 100%;
+  
+    
+    
+ }
+
+ .search-image-about{
+    order: -1;
+    text-align: left;
+    height: 10%;
+   
+ }
+
+.search-image{
+   height: 70%;
+   width: 80%;
+   object-fit:cover;
+   margin: 0%;
+    
+   
+}
+.search-image-div{
+    height:inherit;
+    width: 100%;
+     display: flex;
+    justify-content: flex-start;
+    align-items:flex-start;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+
+
+  
+  /* Blocks: 2 per row or stack if needed */
+  .more-info .blocks {
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    height: auto;
+  
+   
+  }
+
+  .more-info .block {
+    flex: 1 1 calc(45% - 10px);
+    max-width: calc(45% - 10px);
+     
+    
+  }
+}
+
+@media (max-width: 400px) {
+  .more-info .block {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* error para */
+.ep{
+     font-size: clamp(1rem, 3vw,2rem);
+    color: white;
+    text-shadow: 2px 2px 2px rgba(255, 0, 21, 0.4);
+    font-weight: bolder;
+    margin: auto;
+    padding: 2rem
+}

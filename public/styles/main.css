@@ -1,0 +1,166 @@
+
+/* @import url("/styles/content.css");
+@import url("/styles/down.css"); */
+
+:root{
+     --container-width: clamp(320px, 80%, 1200px);
+     --website-background:linear-gradient( #0d1b2a, #d3d3d3, #2a323a);
+     --content-background:#0d1b2a;
+     --padding-inline: clamp(1rem, 5vw, 4rem); 
+     --margin-inline:auto;
+
+}
+/* * {
+  outline: 1px solid red;
+} */
+
+
+
+html,body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0%;
+    padding: 0%;
+    min-height: 100vh;
+    height: auto;
+    width: 100vw;
+    overflow-y:scroll;
+    overflow-x: hidden;
+    background:var(--website-background);
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    margin-bottom: 1rem;
+   
+   
+   
+}
+
+/* HEADER STYLES */
+.header-section{
+    background-color: var(--content-background);
+    width: var(--container-width);
+    height: auto;
+    min-height: 100px;
+    margin:var(--margin-inline);
+    margin-top: 30px;
+    padding-inline: var(--padding-inline);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px; 
+    flex-wrap: nowrap; 
+    padding-block: 3px;
+    box-sizing: border-box;
+   
+}
+
+.header-section .H-logo{
+   
+    color: white;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    flex-shrink: 0;
+    margin-right: 5px;
+    margin-bottom: 0%;
+    white-space: nowrap;
+    font-weight:bolder;
+    align-items: center;
+    
+}
+
+.header-section .Hbtn{
+    flex: 1 1 60px;
+    min-width: 50px;
+    max-width: 100px;
+    height: 30px;
+    border-radius: 9999px;
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    white-space: nowrap;
+    border: none;
+    
+}
+
+.active-btn{
+    background: linear-gradient(135deg, #067e96 0%,#067e96,white, #067e96 100%);
+
+}
+.header-section .loginbtn {
+ flex: 0 0 auto;      
+  width: 33px !important;
+  height: 33px !important;
+  min-width: 33px !important;
+  max-width: 33px !important;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.header-section .loginbtn svg {
+  width: 20px;
+  height: 20px;
+  
+}
+
+.header-section .searchContainer{
+    flex: 2 1 150px;
+    min-width: 120px;
+    max-width: 400px;
+    height: 30px;
+    border-radius: 9999px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+    padding: 0 12px;
+    cursor:text;
+    box-sizing: border-box;
+  
+}
+.header-section input{
+    border:none;
+    outline: none;
+    width: 100%;
+    font-size: clamp(0.7rem, 1vw, 1rem);
+    
+}
+a{
+    color: white !important;
+}
+
+#searchIcon:hover{
+    cursor: pointer;
+    
+}
+
+@media(max-width:575px){
+    .header-section{
+        flex-wrap:wrap;
+       
+    }
+    .header-section .searchContainer{
+        flex: 3 0 100%;
+    }
+    .header-section .H-logo{
+       margin:auto;
+       
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

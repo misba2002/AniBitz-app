@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/details.css">
+</head>
+<body>
+   <%- include("header") %>
+
+   <!-- if error happens in backend it will alert the user! -->
+   <% if(locals.animeDataError) {%>
+    <script>
+    alert("Error loading anime data refresh page !: <%=animeDataError %>");
+    </script>
+     <% } %>
+   
+
+   <section class="detailed-section">
+
+    <div class="detailed-content">
+        <div class="deatiled-img-box">
+            <img class="deatiled-img" src="<%=animeData.images %>" alt="anime-img" onerror="this.onerror=null;this.src='https://media.kitsu.app/anime/46474/poster_image/medium-23e1293e41a0b54b6621eb589c3f0d62.jpeg'">
+        </div>
+        <div class="detailed-img-content">
+            <h1 class="detailed-title"><%=animeData.title_english||"The herioc defeat" %></h1>
+            <p class="japnese-title"><%=animeData.title_japanese ||"葬送のフリーレン" %></p>
+            <p class="release-year">Year:<span class="re-year"><%=animeData.start_date ||"2023-09-29" %></span></p>
+            <p class="episode-detailes">Episode count:<span class="ep-co"><%=animeData.episodes ||"28" %></span></p>
+        </div>
+
+    </div>
+    <div class="deatiled-bottom-content">
+        <div class="bottom-left">
+            <p class="anime-status">Status:<span class="ani-stat"><%=animeData.status ||"unknown"  %></span></p>
+        <% if(animeData&&animeData.id){  %>
+
+            <% if(locals.isAnimeSaved){ %>
+
+            <button id="saveButton" style="display: none;">Save</button>
+            <button id="removeButton">Remove</button>
+            
+            <% } else { %>
+
+            <button id="saveButton">Save</button>
+            <button id="removeButton" style="display: none;">Remove</button>    
+
+            <% } %>
+
+        <% } %>
+           
+        </div>
+        <div class="bottom-right">
+            <p class="anime-synopsis">Synopsis-<span class="synop-data"><%=animeData.synopsis ||"After the party of heroes defeated the Demon King, they restored peace to the land and returned to lives of solitude. Generations pass, and the elven mage Frieren comes face to face with humanity’s mortality. She takes on a new apprentice and promises to fulfill old friends’ dying wishes. Can an elven mind make peace with the nature of life and death? Frieren embarks on her quest to find out."  %></span>  
+        </div>
+
+    </div>
+    <div id="anime-data" data-anime="<%= encodeURIComponent(JSON.stringify(animeData)) %>"></div>
+   
+
+   </section>
+<script src="/js/detail.js"></script>
+
+     
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/topten.css">
+</head>
+<body>
+  <%- include("header") %>
+
+  <section class="top-ten-section saved-section">
+    <!-- saved section css is applied in topten.css file at the bottom -->
+    
+    <% if (locals.savedAnimeListError) { %> 
+      <div class="top-ten-content">
+        <h1>Saved</h1>
+        <p class="error-msg"><%= savedAnimeListError %></p>
+      </div>
+    
+    <% } else if (savedAnimeList.length === 0) { %>
+      <div class="top-ten-content">
+        <h1>Saved</h1>
+        <p class="empty-msg">You haven’t saved anything yet! 😢</p>
+      </div>
+
+    <% } else { %>
+      <div class="top-ten-content">
+        <h1>Saved</h1>
+        <hr>
+        <div class="top-ten-grid  saved-grid">
+          <% savedAnimeList.forEach(el => { %>
+          <a href="/View?id=<%= el.id %>&source=<%= el.source %>">  
+            <div class="top-ten-grid-box saved-img-box">
+              <img class="top-ten-grid-img saved-img" src="<%= el.images %>" alt="saved.img" onerror="this.onerror=null;this.src='/images/anime-2.jpg'">
+              <span class="saved-img-name"><%= el.title_english || "Crimson Pulse: Eclipse Order" %></span>
+            </div>
+         </a>
+          <% }); %>
+        </div>
+      </div>
+    <% } %>
+
+  </section>
+</body>
+</html>

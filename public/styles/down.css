@@ -1,0 +1,95 @@
+
+.down-section{
+    
+    min-height: 300px;
+    height: auto;
+    width: var(--container-width);
+    background-color: var( --content-background);
+    margin: var(--margin-inline);
+    padding-bottom: 20px;
+ 
+
+}
+
+.down-header{
+  
+    border-radius: 8px;
+    height: 50px;
+   box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    margin: 0% 20px;
+   
+}
+
+.down-header span{
+     font-size: clamp(0.8rem, 1.5vw, 1rem);
+    text-shadow: 2px 2px 2px rgba(212, 219, 221, 0.4);
+    cursor: pointer;
+    
+}
+.down-header button{
+    color: rgba(64, 0, 255, 0.879);
+     text-shadow: 1px 1px 2px rgba(0, 200, 255, 0.4);
+    background-color: transparent;
+    border: transparent;
+}
+
+.down-section .down-content{
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin: 0% 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    min-height: 250px;
+    height: auto;
+    justify-content: space-around;
+    
+
+    
+    
+}
+.down-section .card-box{
+    position: relative;
+    height: 200px;
+    width: 200px;
+    border-radius: 8px;
+    z-index: 2;
+    margin: 0%;
+    border: transparent;
+    box-shadow:  0 4px 8px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    color: white;
+    
+    font-size: 0.8rem;
+   
+   
+   
+}
+
+.card-box .card-image{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    
+   
+   
+}
+
+.card-box .card-showname{
+    position: absolute;
+    bottom: 1px;
+    left: 1px;
+    z-index: 2;
+    padding: 1px;
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    text-shadow: 2px 2px 2px rgba(212, 219, 221, 0.4);
+    font-weight: bold;
+
+}

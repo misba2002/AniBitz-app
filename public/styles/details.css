@@ -1,0 +1,223 @@
+
+.detailed-section{
+    min-height: 100vh;
+    height: auto;
+    margin: var(--margin-inline);
+    width: var(--container-width);
+    background: var(--content-background);
+    color: white;
+    position: relative;
+    padding-bottom: 2rem;
+   
+    
+   
+    
+    
+
+}
+
+.detailed-section .detailed-content{
+   
+    box-sizing: border-box;
+    min-height: 530px;
+    margin: 0px 50px 10px 50px;
+    padding-top: 100px;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    
+    
+
+}
+.detailed-section::before{
+    content: "";
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    background-image: url("/images/dark-fantasy-scene.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.2;
+    
+}
+
+.detailed-content .deatiled-img-box{
+    height: 500px;
+    width: 400px;
+    border-radius: 8px;
+    box-shadow: 2px 5px 4px rgb(250, 250, 250);
+     z-index: 2;
+    transform: translateY(40px);
+  
+    
+}
+.deatiled-img-box .deatiled-img{
+    object-fit: cover;
+    object-position: initial;
+    border-radius: 8px;
+    height: 100%;
+    width: 100%;
+   
+}
+
+.detailed-content .detailed-img-content{
+    
+    height: 500px;
+    width: 50%;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content:end;
+    gap: 2px;
+    overflow: hidden;
+
+}
+.detailed-img-content .detailed-title{
+    font-size: clamp(3rem, 5vw, 5rem);
+    color: white;
+    text-shadow: 2px 2px 2px rgb(255, 2, 2);
+    font-weight: bolder;
+    margin: 0%;
+    padding: 1px;
+}
+.detailed-img-content .japnese-title ,.release-year,.episode-detailes,.anime-synopsis{
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color:rgb(181, 172, 172);
+    text-shadow: 1px 1px 1px rgb(255, 0, 0);
+    margin: 0%;
+     padding: 2px;
+
+}
+
+.detailed-section .deatiled-bottom-content{
+    min-height: 300px;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    margin: 0% 50px 10px 50px;
+    border-radius: 6px;
+    padding:10px 0%;
+    background:#0d1b2a !important;
+    position: relative;
+    z-index: 1;
+    
+}
+
+.deatiled-bottom-content .bottom-left{
+    height: 100%;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+  
+ 
+
+
+}
+
+.bottom-left .anime-status{
+    color:rgb(181, 172, 172);
+    text-shadow: 1px 1px 1px rgb(255, 0, 0);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: bolder;
+    text-align:center;
+    
+}
+
+.deatiled-bottom-content .bottom-right{
+    height: 100%;
+    width: 50%;
+    padding-left: 10px;
+  
+}
+
+.bottom-left #saveButton{
+    height: 50px;
+    width: 200px;
+    border-radius: 8px;
+    background-color:rgba(243, 204, 217, 0.927);
+    box-shadow: 5px 5px 3px rgb(150, 13, 13);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color: rgb(209, 86, 127);
+    border: transparent;
+    text-align: center;
+    transform: translateY(-5px);
+  
+}
+.bottom-left #removeButton{
+     height: 50px;
+    width: 200px;
+    border-radius: 8px;
+    background-color:rgba(255, 0, 0, 0.927);
+    box-shadow: 5px 5px 3px rgb(113, 111, 111);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color:white;
+    border: transparent;
+    text-align: center;
+    transform: translateY(-5px);
+
+}
+.bottom-left svg{
+    height: 30px;
+    width: 30px;
+    color: black;
+    border: none!important;
+}
+
+.ani-stat,.ep-co,.re-year,.synop-data{
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color:rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.783);
+    padding: 2px;
+    margin: 0% 2px;
+
+
+}
+
+#saveButton.clicked {
+  background-color: #f10f9b;
+  color:white;
+  transform: scale(0.98);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+  cursor: not-allowed;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+
+@media(max-width:900px){
+
+    .detailed-section .detailed-content{
+        flex-direction: column;
+    }
+    .detailed-content .deatiled-img-box{
+        width: 100%;
+        transform: none;
+        z-index: 1;
+    }
+    .detailed-content .detailed-img-content{
+        width: 100%;
+        justify-content: flex-start;
+        padding-top: 50px;
+        height: auto;
+    }
+   .detailed-section .deatiled-bottom-content{
+    flex-direction: column;
+   }
+   .deatiled-bottom-content .bottom-left{
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 10px;
+   }
+   .deatiled-bottom-content .bottom-right{
+    padding-top: 10px;
+    width: 100%;
+   }
+
+}
