@@ -21,6 +21,28 @@ app.use(express.static("public"));
 app.use(express.json());
 
 
+
+async function fetchWithRetry(url, options = {}, retries = 3, delay = 1000) {
+    const axiosOptions = { timeout: 5000, ...options };
+    for (let attempt = 1; attempt <= retries; attempt++) {
+        try {
+            const response = await axios.get(url, axiosOptions);
+            return response; // 🔷 return full axios response
+        } catch (err) {
+            if (attempt === retries) {
+                console.error(`❌ Failed after ${retries} attempts:`, err.message);
+                throw err;
+            }
+            console.warn(`⚠️ Attempt ${attempt} failed (${err.message}), retrying in ${delay}ms...`);
+            await new Promise(resolve => setTimeout(resolve, delay));
+            delay *= 2; // exponential backoff
+        }
+    }
+}
+
+
+
+
 async function checkSignedUp(req, res, next) {
   try {
     const raw = await fs.readFile(userDataFile, "utf-8");
@@ -43,8 +65,8 @@ async function checkSignedUp(req, res, next) {
 app.get("/", async(req,res)=>{
     
     try{
-        const Response=await axios.get(url);//currently airing anime
-        const topResponse=await axios.get(Url_top);//top-10 anime of all time 
+        const Response=await fetchWithRetry(url);//currently airing anime
+        const topResponse=await fetchWithRetry(Url_top);//top-10 anime of all time 
 
         const result = Response.data.data.slice(0,3);//slicing to get only 3 curently airing anime
 
@@ -86,7 +108,7 @@ app.get("/", async(req,res)=>{
 app.get('/explore', async(req, res) => {
 
     try{
-        const responsePopular=await axios.get(url_popular);//getting popular anime data
+        const responsePopular=await fetchWithRetry(url_popular);//getting popular anime data
         let popularResult=responsePopular.data.data[0];//single data
 
         // debug:
@@ -96,7 +118,7 @@ app.get('/explore', async(req, res) => {
         console.log("popular anime description:"+popularResult.background);
 
 
-        const reponseRated= await axios.get(url_rated);//getting top rated anime data
+        const reponseRated= await fetchWithRetry(url_rated);//getting top rated anime data
         let ratedResult=reponseRated.data.data;//array of data length 3
 
         //debug:
@@ -104,7 +126,7 @@ app.get('/explore', async(req, res) => {
         console.log("rated anime img url:"+ratedResult[0].attributes.posterImage.small);
         console.log("rated title name:"+ratedResult[0].attributes.titles.en);
 
-        const responseNew=await axios.get(url_new);//getting top new released anime
+        const responseNew=await fetchWithRetry(url_new);//getting top new released anime
         let newResult=responseNew.data.data;//getting array of data length 3
 
          //debug:
@@ -134,7 +156,7 @@ app.get('/explore', async(req, res) => {
 
 app.get("/topTen",async(req,res)=>{
     try{
-        const topTenResponse=await axios.get(url_top_ten);//getting top ten anime
+        const topTenResponse=await fetchWithRetry(url_top_ten);//getting top ten anime
         let topTenresult=topTenResponse.data.data;//data
 
 
@@ -243,7 +265,7 @@ app.get("/View",async(req,res)=>{
          
 
         if(DanimeSource==="jikan"){
-            const Dreponse=await axios.get(`https://api.jikan.moe/v4/anime/${DanimeId}`);
+            const Dreponse=await fetchWithRetry(`https://api.jikan.moe/v4/anime/${DanimeId}`);
             let detailedResult=Dreponse.data.data;
 
            specificAnimeData={
@@ -261,7 +283,7 @@ app.get("/View",async(req,res)=>{
             console.log("specific anime data from detiled page of source jikan:\n",specificAnimeData);
         }
          else if(DanimeSource==="kitsu"){
-            const Dreponse=await axios.get(`https://kitsu.io/api/edge/anime/${DanimeId}`);
+            const Dreponse=await fetchWithRetry(`https://kitsu.io/api/edge/anime/${DanimeId}`);
             let detailedResulty=Dreponse.data.data;
            
              specificAnimeData={
@@ -420,7 +442,7 @@ app.get("/search",async(req,res)=>{
     // if user searched for anime then
     try {
 
-        const searchResponse=await axios.get( `https://api.jikan.moe/v4/anime`,{
+        const searchResponse=await fetchWithRetry( `https://api.jikan.moe/v4/anime`,{
             params:{
                 q:searchValue,
                 limit:1
