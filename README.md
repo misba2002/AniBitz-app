@@ -85,6 +85,9 @@ node index.js
 4️⃣ Open in your browser:
 http://localhost:4000
 
+🚀 Live Demo
+🌐 View AniBitz on Render
+
 👩‍💻 Key Routes
 Route	Description
 /Home page with top airing & trending
