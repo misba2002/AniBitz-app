@@ -87,6 +87,7 @@ http://localhost:4000
 
 🚀 Live Demo
 🌐 View AniBitz on Render
+https://anibitz-app.onrender.com/
 
 👩‍💻 Key Routes
 Route	Description
