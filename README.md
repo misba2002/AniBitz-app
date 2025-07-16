@@ -85,9 +85,11 @@ node index.js
 4️⃣ Open in your browser:
 http://localhost:4000
 
-🚀 Live Demo
-🌐 View AniBitz on Render
-https://anibitz-app.onrender.com/
+
+## 🚀 Live Demo
+Check it out 👉 [AniBitz App](https://anibitz-app.onrender.com)
+
+
 
 👩‍💻 Key Routes
 Route	Description
