@@ -5,7 +5,7 @@ import {promises as fs} from "fs";
 
 
 
-const port=4000;
+const port = process.env.PORT || 4000;
 const app=express();
 const url="https://api.jikan.moe/v4/top/anime?filter=airing";
 const Url_top="https://api.jikan.moe/v4/top/anime?limit=10";
